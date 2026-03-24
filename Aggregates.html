@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aggregates - Master Materials</title>
+    <style>
+        
+        body { font-family: sans-serif; background-color: #708091; margin: 0; padding: 0; }
+        
+        nav { background: #2c3e50; color: rgb(228, 138, 36); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
+        nav ul { list-style: none; display: flex; margin: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; }
+
+        header { 
+            color:white(80, 50, 50);
+            text-align:center;
+            height: 30vh;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: backgroundslideshow 15s infinite;
+            background-size: cover;
+            background-position: center;
+        }
+        @keyframes backgroundslideshow {
+            0%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), rgba(105, 98, 98, 0.6)), url('back1.jpg');
+            }
+            33%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), rgba(105, 98, 98, 0.6)), url('back2.jpg');
+            }
+            66%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), (rgba105, 98, 98, 0.6)), url('back3.jpg'); 
+            }
+            100%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), rgba(105, 98, 98, 0.6)), url('back4.jpg');
+            }
+
+        }
+
+        .container { max-width: 900px; margin: 20px auto; padding-bottom: 50px; }
+        .product-card { 
+            display: flex; background: white; margin-bottom: 25px; border-radius: 10px; 
+            overflow: hidden; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .product-info { flex: 2; padding: 20px; display: flex; gap: 20px; }
+        .product-info img { width: 140px; height: 140px; object-fit: cover; border-radius: 5px; }
+
+        
+        .calculator-box { flex: 1; background: #f9f9f9; padding: 20px; border-left: 4px solid #0971da; text-align: center; }
+        .calculator-box input { width: 70px; padding: 8px; margin: 10px 0; font-size: 1rem; }
+        .total-display { font-size: 1.2rem; color: #0971da; font-weight: bold; margin: 10px 0; }
+        
+        .add-to-cart-btn {
+            background-color: #0971da; color: white; border: none; padding: 10px; 
+            width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold;
+        }
+        .add-to-cart-btn:hover { background-color: #0656a3; }
+
+        
+        footer { 
+            clear: both; background-color: #22993b; color: white; 
+            text-align: center; padding: 20px; width: 100%; margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MASTER MATERIALS</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Report.html">Report</a></li>
+            <li><a href="Home.html">Contact</a></li>
+            <li><a href="Home.html">Location</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Aggregates</h1>
+        <p>Reliable quality materials for your commitment to excellence.</p>
+    </header>
+
+    <div class="container">
+        <div class="product-card">
+            <div class="product-info">
+                <img src="Sand.jpg" alt="Sand">
+                <div class="details">
+                    <h3>High-Grade Sand</h3>
+                    <p>$400.00 per load</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Calculator</h4>
+                <input type="number" id="sandQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="sandTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Sand', 'sandQty', 400)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <img src="gravel.jpg" alt="Gravel">
+                <div class="details">
+                    <h3>Crushed Gravel</h3>
+                    <p>$350.00 per load</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Calculator</h4>
+                <input type="number" id="gravelQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="gravelTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Gravel', 'gravelQty', 350)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <img src="slag.jpg" alt="Slag">
+                <div class="details">
+                    <h3>Iron Slag</h3>
+                    <p>$280.00 per ton</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Calculator</h4>
+                <input type="number" id="slagQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="slagTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Slag', 'slagQty', 280)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <img src="wood.jpg" alt="Wood">
+                <div class="details">
+                    <h3>Framing Lumber</h3>
+                    <p>$15.00 per board</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Calculator</h4>
+                <input type="number" id="woodQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="woodTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Wood', 'woodQty', 15)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright.  2026 MASTERMATERIALS.</p>
+    </footer>
+
+    <script>
+        function calc() {
+            
+            let s = document.getElementById('sandQty').value;
+            document.getElementById('sandTotal').innerText = "$" + (s * 400).toFixed(2);
+            
+            
+            let g = document.getElementById('gravelQty').value;
+            document.getElementById('gravelTotal').innerText = "$" + (g * 350).toFixed(2);
+
+            
+            let sl = document.getElementById('slagQty').value;
+            document.getElementById('slagTotal').innerText = "$" + (sl * 280).toFixed(2);
+
+            
+            let w = document.getElementById('woodQty').value;
+            document.getElementById('woodTotal').innerText = "$" + (w * 15).toFixed(2);
+        }
+
+        function cart(name, id, price) {
+            let q = document.getElementById(id).value;
+            if(q > 0) {
+                alert("Success! " + q + " units of " + name + " added. Total: $" + (q * price).toFixed(2));
+            } else {
+                alert("Please enter a quantity.");
+            }
+        }
+    </script>
+</body>
+</html>

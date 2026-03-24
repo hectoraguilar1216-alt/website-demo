@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Machines - Master Materials</title>
+    <style>
+        /* Base Setup based on your existing style */
+        body { font-family: sans-serif; background-color: #708091; margin: 0; padding: 0; }
+        
+        nav { background: #2c3e50; color: rgb(238, 177, 64); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
+        nav ul { list-style: none; display: flex; margin: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; }
+
+        header { 
+        color:white(80, 50, 50);
+            text-align:center;
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: backgroundslideshow 15s infinite;
+            background-size: cover;
+            background-position: center;
+        }
+        @keyframes backgroundslideshow {
+            0%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), rgba(105, 98, 98, 0.6)), url('back1.jpg');
+            }
+            33%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), rgba(105, 98, 98, 0.6)), url('back2.jpg');
+            }
+            66%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), (rgba105, 98, 98, 0.6)), url('back3.jpg'); 
+            }
+            100%{
+                background-image: linear-gradient(rgba(211, 203, 203, 0.6), rgba(105, 98, 98, 0.6)), url('back4.jpg');
+        }
+    }
+        header h1 { font-size: 3em; color: #ffffff; margin: 0; } 
+
+        
+        .container { max-width: 1000px; margin: 20px auto; padding-bottom: 50px; }
+        .product-card { 
+            display: flex; background: white; margin-bottom: 25px; border-radius: 10px; 
+            overflow: hidden; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .product-info { flex: 2; padding: 20px; display: flex; gap: 20px; }
+        .product-info img { width: 200px; height: 150px; object-fit: cover; border-radius: 5px; }
+
+        
+        .calculator-box { flex: 1; background: #f9f9f9; padding: 20px; border-left: 4px solid #0971da; text-align: center; }
+        .calculator-box input { width: 70px; padding: 8px; margin: 10px 0; font-size: 1rem; }
+        .total-display { font-size: 1.2rem; color: #0971da; font-weight: bold; margin: 10px 0; }
+        
+        .add-to-cart-btn {
+            background-color: #0971da; color: white; border: none; padding: 10px; 
+            width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold;
+        }
+        .add-to-cart-btn:hover { background-color: #0656a3; }
+
+        /* The Footer Fix */
+        footer { 
+            clear: both; background-color: #22993b; color: white; 
+            text-align: center; padding: 20px; width: 100%; margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MASTER MATERIALS</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Aggregates.html">Aggregates</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Report.html">Report</a></li>
+            <li><a href="Home.html">Contact</a></li>
+            <li><a href="Home.html">Location</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>machines</h1>
+        <p>Best performing and Reliable machines</p>
+    </header>
+
+    <div class="container">
+        <div class="product-card">
+            <div class="product-info">
+                <img src="Excavators.jpg" alt="Excavator">
+                <div class="details">
+                    <h3>Excavator</h3>
+                    <p>Heavy duty digging and clearing.</p>
+                    <p><strong>$150.00</strong> per hour</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Rent Calculator</h4>
+                <label>Hours:</label><br>
+                <input type="number" id="exQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="exTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Excavator', 'exQty', 150)">Rent Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <img src="dump-trucks.jpg" alt="Dump Truck">
+                <div class="details">
+                    <h3>Dump Truck</h3>
+                    <p>Material transport and site clearing.</p>
+                    <p><strong>$100.00</strong> per trip</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Rent Calculator</h4>
+                <label>Trips:</label><br>
+                <input type="number" id="dtQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="dtTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Dump Truck', 'dtQty', 100)">Rent Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <img src="bulldozer.jpg" alt="Bulldozer">
+                <div class="details">
+                    <h3>Bulldozer</h3>
+                    <p>Powerful leveling and earthmoving.</p>
+                    <p><strong>$180.00</strong> per hour</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Rent Calculator</h4>
+                <label>Hours:</label><br>
+                <input type="number" id="bzQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="bzTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Bulldozer', 'bzQty', 180)">Rent Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-info">
+                <img src="crane.jpg" alt="Crane">
+                <div class="details">
+                    <h3>Crane</h3>
+                    <p>High-altitude lifting and placement.</p>
+                    <p><strong>$250.00</strong> per hour</p>
+                </div>
+            </div>
+            <div class="calculator-box">
+                <h4>Rent Calculator</h4>
+                <label>Hours:</label><br>
+                <input type="number" id="crQty" value="0" min="0" oninput="calc()">
+                <div class="total-display">Total: <span id="crTotal">$0.00</span></div>
+                <button class="add-to-cart-btn" onclick="cart('Crane', 'crQty', 250)">Rent Now</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright.  2026 MASTERMATERIALS.</p>
+    </footer>
+
+    <script>
+        function calc() {
+            // Excavator ($150)
+            let ex = document.getElementById('exQty').value;
+            document.getElementById('exTotal').innerText = "$" + (ex * 150).toFixed(2);
+            
+            // Dump Truck ($100)
+            let dt = document.getElementById('dtQty').value;
+            document.getElementById('dtTotal').innerText = "$" + (dt * 100).toFixed(2);
+
+            // Bulldozer ($180)
+            let bz = document.getElementById('bzQty').value;
+            document.getElementById('bzTotal').innerText = "$" + (bz * 180).toFixed(2);
+
+            // Crane ($250)
+            let cr = document.getElementById('crQty').value;
+            document.getElementById('crTotal').innerText = "$" + (cr * 250).toFixed(2);
+        }
+
+        function cart(name, id, price) {
+            let q = document.getElementById(id).value;
+            if(q > 0) {
+                alert("Success! " + name + " booked for " + q + " units. Total: $" + (q * price).toFixed(2));
+            } else {
+                alert("Please enter a number of hours/trips.");
+            }
+        }
+    </script>
+</body>
+</html>
